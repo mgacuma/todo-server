@@ -1,6 +1,9 @@
 import { Pool } from "pg";
 import { Todo } from "../models/Todo.type";
 
+import dotenv from 'dotenv'
+dotenv.config();
+
 export interface ITodosStore {
     pool: Pool;
     getTodos(): Promise<Todo[]>
@@ -9,13 +12,15 @@ export interface ITodosStore {
     deleteTodo(todo: Todo): Promise<boolean>;
 }
 
+console.log(process.env.PG_URL)
 export class TodosStore implements ITodosStore {
     pool: Pool;
+
 
     constructor(){
         this.pool = new Pool ({
             max: 20,
-            connectionString: 'postgres://miguelgacuma@localhost:5432/postgres',
+            connectionString: process.env.PG_URL,
             idleTimeoutMillis: 30000
         })
     }
