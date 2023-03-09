@@ -17,7 +17,7 @@ class Server {
     private config() {
         this.app.use(express.urlencoded({ extended:true }));
         this.app.use(express.json());
-        this.app.use(cors({origin: 'https://mgacuma.github.io'}));
+        this.app.use(cors({origin: '*'}));
     }
 
     private dbConnect() {
