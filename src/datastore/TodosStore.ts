@@ -12,7 +12,6 @@ export interface ITodosStore {
     deleteTodo(todo: Todo): Promise<boolean>;
 }
 
-console.log(process.env.PG_URL)
 export class TodosStore implements ITodosStore {
     pool: Pool;
 
