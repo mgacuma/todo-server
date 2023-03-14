@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/src/app.js",
   "scripts": {
-    "build": "tsc && node dist/src/app.js",
+    "build": "tsc",
     "start": "cp .env ./dist/.env && tsc && node dist/src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
